@@ -1,0 +1,56 @@
+#!/usr/bin/env node
+'use strict';
+
+const chalk = require('chalk');
+const program = require('commander');
+const spawn = require('win-spawn');
+const join = require('path').join;
+const exists = require('fs').existsSync;
+const title = chalk.bold.green;
+
+program
+  .version(require('../package').version, '-v, --version')
+  .usage('<command> [options]')
+  .on('--help', printHelp)
+  .parse(process.argv);
+
+const aliases = {
+  g: 'generate',
+};
+const args = process.argv.slice(3);
+let subcmd = program.args[0];
+if (aliases[subcmd]) subcmd = aliases[subcmd];
+
+if (!subcmd) {
+  program.help();
+} else {
+  const bin = executable(subcmd);
+  if (bin) {
+    console.log(bin);
+    wrap(spawn(bin, args, {stdio: 'inherit', customFds: [0, 1, 2]}));
+  } else {
+    program.help();
+  }
+}
+
+function wrap(sp) {
+  sp.on('close', function(code) {
+    process.exit(code);
+  });
+}
+
+function printHelp() {
+  console.log(title('  Package Commands:'));
+  console.log();
+  console.log('    init           Creates a new dva project in the current folder');
+  console.log('    new            Creates a new directory and runs dva init in it');
+  console.log('    generate       Generates new code from blueprints');
+  console.log();
+}
+
+function executable(subcmd) {
+  var file = join(__dirname, 'dva-' + subcmd);
+  if (exists(file)) {
+    return file;
+  }
+}

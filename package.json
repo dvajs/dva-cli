@@ -1,0 +1,52 @@
+{
+  "name": "dva-cli",
+  "version": "0.1.0",
+  "description": "The dva command line utility.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dvajs/dva-cli"
+  },
+  "homepage": "https://github.com/dvajs/dva-cli",
+  "mail": "chencheng <sorrycc@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "dva": "./bin/dva"
+  },
+  "scripts": {
+    "build": "rm -rf lib && babel src --out-dir lib"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "through2": "^2.0.1",
+    "vinyl-fs": "^2.4.3",
+    "which": "^1.2.10",
+    "win-spawn": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "~6.5.0",
+    "babel-runtime": "^6.9.2"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      "add-module-exports",
+      "transform-runtime"
+    ]
+  },
+  "files": [
+    "lib",
+    "src",
+    "boilerplate",
+    "bin"
+  ]
+}

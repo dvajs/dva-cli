@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+
+program
+  .option('--demo', 'Generate dva project for demo')
+  .parse(process.argv);
+
+// mkdir
+// cd && process.chdir()
+// require('../lib/init')(program);
