@@ -19,6 +19,7 @@ export default {
 
   reducers: {
     ['examples/save'](state, action) {
+      return { ...state, ...action.payload };
     },
   },
 

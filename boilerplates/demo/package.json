@@ -30,6 +30,7 @@
   "scripts": {
     "build": "atool-build",
     "lint": "eslint --ext .js,.jsx src/",
-    "start": "dora --plugins \"proxy,webpack,livereload?enableJs=false&injectHost=127.0.0.1\""
+    "start": "dora --plugins \"proxy,webpack,livereload?enableJs=false&injectHost=127.0.0.1\"",
+    "test": "echo \"not implemented\""
   }
 }
