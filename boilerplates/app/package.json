@@ -10,9 +10,8 @@
   },
   "devDependencies": {
     "atool-build": "^0.7.6",
-    "atool-test-mocha": "^0.1.5-beta4",
+    "atool-test-mocha": "^0.1.5",
     "babel-plugin-transform-runtime": "^6.9.0",
-    "babel-polyfill": "^6.9.1",
     "babel-runtime": "^6.9.2",
     "dora": "0.3.x",
     "dora-plugin-proxy": "^0.7.0",
@@ -23,6 +22,6 @@
   "scripts": {
     "start": "dora --plugins \"proxy,webpack,webpack-hmr\"",
     "build": "atool-build",
-    "test": "atool-test-mocha ./src/**/*-test.js --require babel-polyfill"
+    "test": "atool-test-mocha ./src/**/*-test.js"
   }
 }
