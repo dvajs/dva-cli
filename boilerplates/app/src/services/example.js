@@ -1,5 +1,5 @@
-import xFetch from './xFetch';
+import request from '../utils/request';
 
 export async function query() {
-  return xFetch('/api/users');
+  return request('/api/users');
 }
