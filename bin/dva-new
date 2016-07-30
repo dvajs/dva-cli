@@ -2,7 +2,10 @@
 
 const program = require('commander');
 const mkdirpSync = require('fs-extra').mkdirpSync;
+const existsSync = require('fs').existsSync;
 const join = require('path').join;
+const chalk = require('chalk');
+const error = chalk.red;
 
 program
   .usage('[options] appName')
@@ -14,6 +17,10 @@ if (!program.args[0]) {
   program.help();
 } else {
   const dest = join(process.cwd(), program.args[0]);
+  if (existsSync(dest)) {
+    console.error(error('Target directory exists: ' + dest));
+    process.exit(1);
+  }
   mkdirpSync(dest);
   process.chdir(dest);
   require('../lib/init')(program);

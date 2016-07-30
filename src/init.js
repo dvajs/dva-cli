@@ -4,12 +4,19 @@ import { renameSync } from 'fs';
 import through from 'through2';
 const chalk = require('chalk');
 const cat = chalk.green;
+const error = chalk.red;
+const emptyDir = require('empty-dir').sync;
 
 function init({ demo, install }) {
   const type = demo ? 'demo' : 'app';
   const cwd = join(__dirname, '../boilerplates', type);
   const dest = process.cwd();
   const projectName = basename(dest);
+
+  if (!emptyDir(dest)) {
+    console.error(error('Existing files here, please run init command in an empty folder!'));
+    process.exit(1);
+  }
 
   console.log(`Creating a new Dva app in ${dest}.`);
   console.log();
