@@ -13,12 +13,12 @@ export default {
   ],
 
   effects: {
-    *['examples/query']({ payload }) {
+    *['example/query']({ payload }) {
     },
   },
 
   reducers: {
-    ['examples/save'](state, action) {
+    ['example/save'](state, action) {
       return { ...state, ...action.payload };
     },
   },
