@@ -6,7 +6,7 @@ import dva, { connect } from 'dva';
 const app = dva();
 
 // 2. Plugins
-//app.use();
+//app.use({});
 
 // 3. Model
 //app.model(require('./models/example'));

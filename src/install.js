@@ -29,7 +29,9 @@ function findNpm() {
 export default function (done) {
   const npm = findNpm();
   runCmd(which.sync(npm), ['install'], function () {
-    console.log(npm + ' install end');
-    done();
+    runCmd(which.sync(npm), ['install', 'dva', '--save'], function () {
+      console.log(npm + ' install end');
+      done();
+    });
   });
 };
