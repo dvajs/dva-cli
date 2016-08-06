@@ -1,4 +1,9 @@
 
+## `0.3.0`
+
+- Support hmr with babel-plugin-dva-hmr
+- Always install lastest version of dva
+
 ## `0.2.0`
 
 - Add tests
