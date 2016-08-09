@@ -8,7 +8,7 @@ export default {
   },
 
   subscriptions: [
-    function(dispatch) {
+    function({ dispatch }) {
     },
   ],
 
