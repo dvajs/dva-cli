@@ -1,5 +1,7 @@
 import dva, { connect } from 'dva';
 import { Router, Route } from 'dva/router';
+import { put, call, select } from 'dva/effects';
+import fetch from 'dva/fetch';
 import React from 'react';
 
 // 1. Initialize
@@ -18,4 +20,4 @@ app.router(({ history }) =>
 );
 
 // 4. Start
-app.start(document.getElementById('root'));
+app.start('#root');

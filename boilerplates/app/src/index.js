@@ -1,6 +1,6 @@
 import './index.html';
 import './index.less';
-import dva, { connect } from 'dva';
+import dva from 'dva';
 
 // 1. Initialize
 const app = dva();
@@ -15,4 +15,4 @@ const app = dva();
 app.router(require('./router'));
 
 // 5. Start
-app.start(document.getElementById('root'));
+app.start('#root');
