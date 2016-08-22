@@ -1,24 +1,22 @@
-import { call, put } from 'dva/effects';
 
 export default {
 
   namespace: 'example',
 
-  state: {
+  state: {},
+
+  subscriptions: {
+    setup({ dispatch, history }) {
+    },
   },
 
-  subscriptions: [
-    function({ dispatch }) {
-    },
-  ],
-
   effects: {
-    *['example/query']({ payload }) {
+    *fetchRemote({ payload }, { call, put }) {
     },
   },
 
   reducers: {
-    ['example/save'](state, action) {
+    fetch(state, action) {
       return { ...state, ...action.payload };
     },
   },

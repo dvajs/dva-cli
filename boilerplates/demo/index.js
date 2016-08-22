@@ -1,6 +1,5 @@
 import dva, { connect } from 'dva';
 import { Router, Route } from 'dva/router';
-import { put, call, select } from 'dva/effects';
 import fetch from 'dva/fetch';
 import React from 'react';
 
