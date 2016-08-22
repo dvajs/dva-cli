@@ -10,6 +10,7 @@
   "devDependencies": {
     "atool-build": "^0.7.6",
     "atool-test-mocha": "^0.1.5",
+    "babel-plugin-dev-expression": "^0.2.1",
     "babel-plugin-dva-hmr": "^0.1.0",
     "babel-plugin-transform-runtime": "^6.9.0",
     "babel-runtime": "^6.9.2",

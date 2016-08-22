@@ -11,6 +11,8 @@ module.exports = function(webpackConfig, env) {
         './src/index.js',
       ],
     }]);
+  } else {
+    webpackConfig.babel.plugins.push('dev-expression');
   }
 
   // Support CSS Modules
