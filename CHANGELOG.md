@@ -1,4 +1,8 @@
 
+## `0.4.0`
+
+- Compatible with dva@1.0.0-beta
+
 ## `0.3.0`
 
 - Support hmr with babel-plugin-dva-hmr
