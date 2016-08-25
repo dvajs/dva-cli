@@ -1,4 +1,8 @@
 
+## `0.4.1`
+
+- Change jsx to js
+
 ## `0.4.0`
 
 - Compatible with dva@1.0.0-beta
