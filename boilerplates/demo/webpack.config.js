@@ -3,8 +3,12 @@
 
 const webpack = require('atool-build/lib/webpack');
 
-module.exports = function(webpackConfig) {
+module.exports = function(webpackConfig, env) {
   webpackConfig.babel.plugins.push('transform-runtime');
+
+  if (dev === 'development') {
+    webpackConfig.devtool = '#eval';
+  }
 
   // CSS Modules Support.
   // Parse all less files as css module.
