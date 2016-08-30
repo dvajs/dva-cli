@@ -6,7 +6,7 @@ const webpack = require('atool-build/lib/webpack');
 module.exports = function(webpackConfig, env) {
   webpackConfig.babel.plugins.push('transform-runtime');
 
-  if (dev === 'development') {
+  if (env === 'development') {
     webpackConfig.devtool = '#eval';
   }
 
