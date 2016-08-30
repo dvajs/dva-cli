@@ -1,4 +1,8 @@
 
+## `0.4.3`
+
+- Fix typo
+
 ## `0.4.2`
 
 - Fix sourcemap undefined
