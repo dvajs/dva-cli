@@ -1,4 +1,8 @@
 
+## `0.4.2`
+
+- Fix sourcemap undefined
+
 ## `0.4.1`
 
 - Change jsx to js
