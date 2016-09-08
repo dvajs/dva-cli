@@ -4,6 +4,7 @@
     "index": "./src/index.js"
   },
   "dependencies": {
+    "dva": "^1.0.0-beta4",
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
   },

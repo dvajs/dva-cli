@@ -1,6 +1,3 @@
-// Learn more on how to config.
-// - https://github.com/ant-tool/atool-build
-
 const webpack = require('atool-build/lib/webpack');
 
 module.exports = function(webpackConfig, env) {
@@ -9,6 +6,11 @@ module.exports = function(webpackConfig, env) {
   if (env === 'development') {
     webpackConfig.devtool = '#eval';
   }
+
+  // Don't extract common.js and common.css
+  webpackConfig.plugins = webpackConfig.plugins.filter(function(plugin) {
+    return !(plugin instanceof webpack.optimize.CommonsChunkPlugin);
+  });
 
   // CSS Modules Support.
   // Parse all less files as css module.
