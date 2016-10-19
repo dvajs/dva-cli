@@ -1,4 +1,6 @@
 
+> The latest CHANGELOG is written in https://github.com/dvajs/dva-cli/releases .
+
 ## `0.4.3`
 
 - Fix typo
