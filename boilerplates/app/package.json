@@ -4,7 +4,7 @@
     "index": "./src/index.js"
   },
   "dependencies": {
-    "dva": "^1.0.0-beta4",
+    "dva": "^1.1.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
   },
@@ -12,7 +12,7 @@
     "atool-build": "^0.8.0",
     "atool-test-mocha": "^0.1.5",
     "babel-plugin-dev-expression": "^0.2.1",
-    "babel-plugin-dva-hmr": "^0.1.0",
+    "babel-plugin-dva-hmr": "^0.2.0",
     "babel-plugin-transform-runtime": "^6.9.0",
     "babel-runtime": "^6.9.2",
     "dora": "^0.4.3",
