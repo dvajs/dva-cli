@@ -6,7 +6,6 @@ const program = require('commander');
 const spawn = require('win-spawn');
 const join = require('path').join;
 const exists = require('fs').existsSync;
-const title = chalk.bold.green;
 
 program
   .version(require('../package').version, '-v, --version')
@@ -40,12 +39,13 @@ function wrap(sp) {
 }
 
 function printHelp() {
-  console.log(title('  Package Commands:'));
+  console.log('  Commands:');
   console.log();
-  console.log('    init           Creates a new dva project in the current folder');
-  console.log('    new            Creates a new directory and runs dva init in it');
-  console.log('    generate       Generates new code from blueprints');
+  console.log('    init           Init a new dva application in the current folder');
+  console.log('    new            Creates a new application');
+  console.log('    generate       Generates new code (short-cut alias: "g")');
   console.log();
+  console.log('  All commands can be run with -h (or --help) for more information.')
 }
 
 function executable(subcmd) {
