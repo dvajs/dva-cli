@@ -2,10 +2,17 @@ import { join, basename } from 'path';
 import vfs from 'vinyl-fs';
 import { renameSync } from 'fs';
 import through from 'through2';
-const chalk = require('chalk');
-const cat = chalk.green;
-const error = chalk.red;
-const emptyDir = require('empty-dir').sync;
+import leftPad from 'left-pad';
+import chalk from 'chalk';
+import { sync as emptyDir } from 'empty-dir';
+
+function logInfo(type, message) {
+  console.log(`${chalk.green.bold(leftPad(type, 12))}  ${message}`);
+}
+
+function logError(message) {
+  console.error(chalk.red(message));
+}
 
 function init({ demo, install }) {
   const type = demo ? 'demo' : 'app';
@@ -14,7 +21,7 @@ function init({ demo, install }) {
   const projectName = basename(dest);
 
   if (!emptyDir(dest)) {
-    console.error(error('Existing files here, please run init command in an empty folder!'));
+    logError('Existing files here, please run init command in an empty folder!');
     process.exit(1);
   }
 
@@ -22,12 +29,13 @@ function init({ demo, install }) {
   console.log();
 
   vfs.src(['**/*', '!node_modules/**/*'], {cwd: cwd, cwdbase: true, dot: true})
-    .pipe(template(dest))
+    .pipe(template(dest, cwd))
     .pipe(vfs.dest(dest))
     .on('end', function() {
-      console.log(`  ${cat('Rename')} ./gitignore to ./.gitignore`);
+      logInfo('rename', 'gitignore -> .gitignore');
       renameSync(join(dest, 'gitignore'), join(dest, '.gitignore'));
       if (install) {
+        logInfo('run', 'npm install');
         require('./install')(printSuccess);
       } else {
         printSuccess();
@@ -36,7 +44,7 @@ function init({ demo, install }) {
     .resume();
 
   function printSuccess() {
-    console.log(`
+    console.log(chalk.green(`
 Success! Created ${projectName} at ${dest}.
 
 Inside that directory, you can run several commands:
@@ -48,24 +56,20 @@ We suggest that you begin by typing:
   cd ${dest}
   npm start
 
-Happy hacking!`);
+Happy hacking!`));
   }
 }
 
-function template(dest) {
+function template(dest, cwd) {
   return through.obj(function (file, enc, cb) {
     if (!file.stat.isFile()) {
       return cb();
     }
 
-    console.log(`   ${cat('Write')} %s`, simplifyFilename(join(dest, basename(file.path))));
+    logInfo('create', file.path.replace(cwd + '/', ''));
     this.push(file);
     cb();
   });
-}
-
-function simplifyFilename(file) {
-  return file.replace(process.cwd(), '.');
 }
 
 export default init;
