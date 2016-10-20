@@ -9,8 +9,8 @@ const error = chalk.red;
 
 program
   .usage('[options] appName')
-  .option('--demo', 'Generate dva project for demo')
-  .option('--no-install', 'Install dependencies after boilerplate, default: true')
+  .option('--demo', 'Generate a dead simple project for quick prototype')
+  .option('--no-install', 'Disable npm install after files created')
   .parse(process.argv);
 
 if (!program.args[0]) {
@@ -18,7 +18,7 @@ if (!program.args[0]) {
 } else {
   const dest = join(process.cwd(), program.args[0]);
   if (existsSync(dest)) {
-    console.error(error('Target directory exists: ' + dest));
+    console.error(error('Existing directory here, please run new command for an empty folder!'));
     process.exit(1);
   }
   mkdirpSync(dest);
