@@ -10,7 +10,7 @@ function IndexPage() {
       <div className={styles.welcome} />
       <ul className={styles.list}>
         <li>To get started, edit <code>src/index.js</code> and save to reload.</li>
-        <li><a href="https://github.com/sorrycc/blog/issues/8" target="_blank">Getting Started</a></li>
+        <li><a href="https://github.com/dvajs/dva-docs/blob/master/v1/en-us/getting-started.md" target="_blank">Getting Started</a></li>
       </ul>
     </div>
   );

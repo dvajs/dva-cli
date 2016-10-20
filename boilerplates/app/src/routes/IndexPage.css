@@ -3,7 +3,6 @@
   font-family: Georgia, sans-serif;
   margin-top: 3em;
   text-align: center;
-  font-size: 1.5em;
 }
 
 .title {
@@ -17,7 +16,12 @@
 }
 
 .list {
-  margin-top: 1.5em;
+  font-size: 1.2em;
+  margin-top: 1.8em;
   list-style: none;
   line-height: 1.5em;
+}
+
+.list code {
+  background: #f7f7f7;
 }
