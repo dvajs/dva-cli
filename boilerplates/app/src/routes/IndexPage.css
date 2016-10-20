@@ -1,0 +1,23 @@
+
+.normal {
+  font-family: Georgia, sans-serif;
+  margin-top: 3em;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.title {
+  font-size: 2.5rem;
+}
+
+.welcome {
+  height: 350px;
+  background: url(../assets/welcome.jpg) no-repeat center 0;
+  background-size: 650px 350px;
+}
+
+.list {
+  margin-top: 1.5em;
+  list-style: none;
+  line-height: 1.5em;
+}
