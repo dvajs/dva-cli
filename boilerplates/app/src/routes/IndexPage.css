@@ -7,12 +7,14 @@
 
 .title {
   font-size: 2.5rem;
+  font-weight: normal;
+  letter-spacing: -1px;
 }
 
 .welcome {
   height: 350px;
   background: url(../assets/welcome.jpg) no-repeat center 0;
-  background-size: 650px 350px;
+  background-size: 600px 350px;
 }
 
 .list {
