@@ -5,22 +5,22 @@
   },
   "dependencies": {
     "dva": "^1.1.0",
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
   },
   "devDependencies": {
-    "atool-build": "^0.8.0",
+    "atool-build": "^0.9.0",
     "atool-test-mocha": "^0.1.5",
     "babel-plugin-dev-expression": "^0.2.1",
     "babel-plugin-dva-hmr": "^0.2.0",
     "babel-plugin-transform-runtime": "^6.9.0",
     "babel-runtime": "^6.9.2",
     "dora": "^0.4.3",
-    "dora-plugin-proxy": "^0.8.2",
+    "dora-plugin-proxy": "^0.8.4",
     "dora-plugin-webpack": "^0.8.1",
     "dora-plugin-webpack-hmr": "^0.2.1",
     "expect": "^1.20.2",
-    "redbox-react": "^1.2.10"
+    "redbox-react": "^1.3.2"
   },
   "scripts": {
     "start": "dora --plugins \"proxy?watchDirs=./mock,webpack,webpack-hmr\"",
