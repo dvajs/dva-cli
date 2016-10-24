@@ -12,9 +12,9 @@
 }
 
 .welcome {
-  height: 350px;
-  background: url(../assets/welcome.jpg) no-repeat center 0;
-  background-size: 600px 350px;
+  height: 328px;
+  background: url(../assets/yay.jpg) no-repeat center 0;
+  background-size: 388px 328px;
 }
 
 .list {
