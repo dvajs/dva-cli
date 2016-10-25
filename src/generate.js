@@ -1,10 +1,10 @@
 import api from 'dva-ast/lib/api';
 import upperCamelCase from 'uppercamelcase';
-import { info, error, success } from './log';
+import { info, error } from './log';
 import { basename, dirname, join } from 'path';
 
-const defaultEntry = './src/index.js';
-const defaultRouter = './src/router.js';
+const defaultEntry = 'src/index.js';
+const defaultRouter = 'src/router.js';
 
 function generate(program, { cwd }) {
   const [type, name] = program.args;
@@ -31,11 +31,14 @@ function generate(program, { cwd }) {
         (() => {
           const componentName = upperCamelCase(name);
           const componentPath = `src/routes/${componentName}.js`;
-          info('create', `routeComponent ${componentName}`);
+          const componentCSSPath = `src/routes/${componentName}.css`;
+          const withCSS = program.css ? `, ${componentCSSPath}` : '';
+          info('create', `routeComponent ${componentPath}${withCSS}`);
           api('routeComponents.create', {
             sourcePath: cwd,
             filePath: componentPath,
             componentName,
+            css: program.css,
           });
           info('create', `route ${name} with ${componentPath}`);
           api('router.createRoute', {
@@ -55,11 +58,14 @@ function generate(program, { cwd }) {
           const fileDir = dirname(name);
           const componentName = upperCamelCase(fileName);
           const filePath = join('src/components', fileDir, `${componentName}.js`);
-          info('create', `component ${filePath}`);
+          const componentCSSPath = join('src/components', fileDir, `${componentName}.css`);
+          const withCSS = program.css ? `, ${componentCSSPath}` : '';
+          info('create', `component ${filePath}${withCSS}`);
           api('components.create', {
             sourcePath: cwd,
             filePath,
             componentName,
+            css: program.css,
           });
         })();
         break;

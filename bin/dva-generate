@@ -3,6 +3,7 @@
 const program = require('commander');
 
 program
+  .option('--no-css', 'Don\'t generate css for component and routeComponent')
   .parse(process.argv);
 
 require('../lib/generate')(program, {
