@@ -1,3 +1,11 @@
 #!/usr/bin/env node
 
-console.warn('Will be implemented in next version.');
+const program = require('commander');
+
+program
+  .option('--no-css', 'Don\'t generate css for component and routeComponent')
+  .parse(process.argv);
+
+require('../lib/generate')(program, {
+  cwd: process.cwd(),
+});

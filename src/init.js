@@ -2,17 +2,8 @@ import { join, basename } from 'path';
 import vfs from 'vinyl-fs';
 import { renameSync } from 'fs';
 import through from 'through2';
-import leftPad from 'left-pad';
-import chalk from 'chalk';
 import { sync as emptyDir } from 'empty-dir';
-
-function logInfo(type, message) {
-  console.log(`${chalk.green.bold(leftPad(type, 12))}  ${message}`);
-}
-
-function logError(message) {
-  console.error(chalk.red(message));
-}
+import { info, error, success } from './log';
 
 function init({ demo, install }) {
   const type = demo ? 'demo' : 'app';
@@ -21,7 +12,7 @@ function init({ demo, install }) {
   const projectName = basename(dest);
 
   if (!emptyDir(dest)) {
-    logError('Existing files here, please run init command in an empty folder!');
+    error('Existing files here, please run init command in an empty folder!');
     process.exit(1);
   }
 
@@ -32,10 +23,10 @@ function init({ demo, install }) {
     .pipe(template(dest, cwd))
     .pipe(vfs.dest(dest))
     .on('end', function() {
-      logInfo('rename', 'gitignore -> .gitignore');
+      info('rename', 'gitignore -> .gitignore');
       renameSync(join(dest, 'gitignore'), join(dest, '.gitignore'));
       if (install) {
-        logInfo('run', 'npm install');
+        info('run', 'npm install');
         require('./install')(printSuccess);
       } else {
         printSuccess();
@@ -44,7 +35,7 @@ function init({ demo, install }) {
     .resume();
 
   function printSuccess() {
-    console.log(chalk.green(`
+    success(`
 Success! Created ${projectName} at ${dest}.
 
 Inside that directory, you can run several commands:
@@ -56,7 +47,7 @@ We suggest that you begin by typing:
   cd ${dest}
   npm start
 
-Happy hacking!`));
+Happy hacking!`);
   }
 }
 
@@ -66,7 +57,7 @@ function template(dest, cwd) {
       return cb();
     }
 
-    logInfo('create', file.path.replace(cwd + '/', ''));
+    info('create', file.path.replace(cwd + '/', ''));
     this.push(file);
     cb();
   });
