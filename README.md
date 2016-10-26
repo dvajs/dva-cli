@@ -27,7 +27,7 @@ $ dva new myApp
 $ cd myApp
 ```
 
-### dva generate
+### dva generate (short-cut alias: "g")
 
 ```bash
 $ dva g route product-list
