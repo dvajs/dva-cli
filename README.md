@@ -27,6 +27,15 @@ $ dva new myApp
 $ cd myApp
 ```
 
+### dva generate
+
+```bash
+$ dva g route product-list
+$ dva g model products
+$ dva g component title
+$ dva g component title --no-css
+```
+
 ## License
 
 [MIT](https://tldrlegal.com/license/mit-license)
