@@ -1,5 +1,5 @@
 import api from 'dva-ast/lib/api';
-import upperCamelCase from 'uppercamelcase';
+import upperCamelCase from 'simple-uppercamelcase';
 import { info, error } from './log';
 import { basename, dirname, join } from 'path';
 
