@@ -5,8 +5,8 @@
   },
   "dependencies": {
     "dva": "^1.1.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0"
   },
   "devDependencies": {
     "atool-build": "^0.9.0",
