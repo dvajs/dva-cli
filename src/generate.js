@@ -2,10 +2,21 @@ import { api } from 'dva-ast';
 import upperCamelCase from 'simple-uppercamelcase';
 import { info, error } from './log';
 import { basename, dirname, join } from 'path';
+import { statSync, readFileSync } from 'fs';
+
+function getBabelRc(cwd) {
+  const rcPath = join(cwd, '.dvarc');
+  if (statSync(rcPath).isFile()) {
+    return JSON.parse(readFileSync(rcPath, 'utf-8'));
+  } else {
+    return {};
+  }
+}
 
 function generate(program, { cwd }) {
   const defaultBase = 'src';
-  const base = program.base || defaultBase;
+  const rc = getBabelRc(cwd);
+  const base = program.base || rc.base || defaultBase;
   const defaultEntry = `${base}/index.js`;
   const defaultRouter = `${base}/router.js`;
 
