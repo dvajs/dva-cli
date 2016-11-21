@@ -3,10 +3,12 @@ import upperCamelCase from 'simple-uppercamelcase';
 import { info, error } from './log';
 import { basename, dirname, join } from 'path';
 
-const defaultEntry = 'src/index.js';
-const defaultRouter = 'src/router.js';
-
 function generate(program, { cwd }) {
+  const defaultBase = 'src';
+  const base = program.base || defaultBase;
+  const defaultEntry = `${base}/index.js`;
+  const defaultRouter = `${base}/router.js`;
+
   const [type, name] = program.args;
 
   try {
@@ -14,7 +16,7 @@ function generate(program, { cwd }) {
       case 'model':
         (() => {
           const modelPath = `./models/${name}`;
-          const filePath = `src/models/${name}.js`;
+          const filePath = `${base}/models/${name}.js`;
           const entry = program.entry || defaultEntry;
           info('create', `model ${name}`);
           info('register', `to entry ${entry}`);
@@ -30,8 +32,8 @@ function generate(program, { cwd }) {
       case 'route':
         (() => {
           const componentName = upperCamelCase(name);
-          const componentPath = `src/routes/${componentName}.js`;
-          const componentCSSPath = `src/routes/${componentName}.css`;
+          const componentPath = `${base}/routes/${componentName}.js`;
+          const componentCSSPath = `${base}/routes/${componentName}.css`;
           const withCSS = program.css ? `, ${componentCSSPath}` : '';
           info('create', `routeComponent ${componentPath}${withCSS}`);
           api('routeComponents.create', {
@@ -57,8 +59,8 @@ function generate(program, { cwd }) {
           const fileName = basename(name);
           const fileDir = dirname(name);
           const componentName = upperCamelCase(fileName);
-          const filePath = join('src/components', fileDir, `${componentName}.js`);
-          const componentCSSPath = join('src/components', fileDir, `${componentName}.css`);
+          const filePath = join(`${base}/components`, fileDir, `${componentName}.js`);
+          const componentCSSPath = join(`${base}/components`, fileDir, `${componentName}.css`);
           const withCSS = program.css ? `, ${componentCSSPath}` : '';
           info('create', `component ${filePath}${withCSS}`);
           api('components.create', {
