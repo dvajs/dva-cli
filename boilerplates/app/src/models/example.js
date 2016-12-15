@@ -6,19 +6,20 @@ export default {
   state: {},
 
   subscriptions: {
-    setup({ dispatch, history }) {
+    setup({ dispatch, history }) {  // eslint-disable-line
     },
   },
 
   effects: {
-    *fetchRemote({ payload }, { call, put }) {
+    *fetch({ payload }, { call, put }) {  // eslint-disable-line
+      yield put({ type: 'save' });
     },
   },
 
   reducers: {
-    fetch(state, action) {
+    save(state, action) {
       return { ...state, ...action.payload };
     },
   },
 
-}
+};
