@@ -5,11 +5,9 @@
   "publicPath": "/",
   "autoprefixer": null,
   "proxy": null,
-
   "extraBabelPlugins": [
     "transform-runtime"
   ],
-
   "env": {
     "development": {
       "extraBabelPlugins": [
