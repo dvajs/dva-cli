@@ -7,7 +7,8 @@
     "react-dom": "^15.4.0"
   },
   "devDependencies": {
-    "babel-plugin-transform-runtime": "^6.8.0"
+    "babel-plugin-transform-runtime": "^6.8.0",
+    "roadhog": "^0.1.0"
   },
   "scripts": {
     "start": "roadhog server",
