@@ -36,6 +36,10 @@ $ dva g component title
 $ dva g component title --no-css
 ```
 
+## Configuration
+
+dva-cli use [roadhog](https://github.com/sorrycc/roadhog) for build and server, view [roadhog#Configuration](https://github.com/sorrycc/roadhog#配置) for details.
+
 ## License
 
 [MIT](https://tldrlegal.com/license/mit-license)
