@@ -3,10 +3,11 @@ import upperCamelCase from 'simple-uppercamelcase';
 import { info, error } from './log';
 import { basename, dirname, join } from 'path';
 import { statSync, readFileSync } from 'fs';
+import pathExists from 'path-exists';
 
 function getBabelRc(cwd) {
   const rcPath = join(cwd, '.dvarc');
-  if (statSync(rcPath).isFile()) {
+  if (pathExists.sync(rcPath)) {
     return JSON.parse(readFileSync(rcPath, 'utf-8'));
   } else {
     return {};
