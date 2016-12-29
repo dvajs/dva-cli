@@ -1,6 +1,6 @@
 import { api } from 'dva-ast';
 import upperCamelCase from 'simple-uppercamelcase';
-import { info, error } from './log';
+import { info, error } from './logger';
 import { basename, dirname, join } from 'path';
 import { statSync, readFileSync } from 'fs';
 import pathExists from 'path-exists';

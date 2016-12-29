@@ -3,7 +3,7 @@ import vfs from 'vinyl-fs';
 import { renameSync } from 'fs';
 import through from 'through2';
 import { sync as emptyDir } from 'empty-dir';
-import { info, error, success } from './log';
+import { info, error, success } from './logger';
 
 function init({ demo, install }) {
   const type = demo ? 'demo' : 'app';
