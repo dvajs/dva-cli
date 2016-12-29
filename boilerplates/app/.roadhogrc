@@ -1,8 +1,6 @@
 {
   "entry": "src/index.js",
   "disableCSSModules": false,
-  "less": false,
-  "publicPath": "/",
   "autoprefixer": null,
   "proxy": null,
   "extraBabelPlugins": [
