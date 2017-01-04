@@ -1,5 +1,4 @@
 import dva from 'dva';
-import './index.html';
 import './index.css';
 
 // 1. Initialize
