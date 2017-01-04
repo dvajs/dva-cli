@@ -3,13 +3,16 @@
   "disableCSSModules": false,
   "autoprefixer": null,
   "proxy": null,
-  "extraBabelPlugins": [
-    "transform-runtime"
-  ],
   "env": {
     "development": {
       "extraBabelPlugins": [
-        "dva-hmr"
+        "dva-hmr",
+        "transform-runtime"
+      ]
+    },
+    "production": {
+      "extraBabelPlugins": [
+        "transform-runtime"
       ]
     }
   }
