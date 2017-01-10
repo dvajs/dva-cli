@@ -3,7 +3,20 @@ import vfs from 'vinyl-fs';
 import { renameSync } from 'fs';
 import through from 'through2';
 import { sync as emptyDir } from 'empty-dir';
-import { info, error, success } from './logger';
+import leftPad from 'left-pad';
+import chalk from 'chalk';
+
+function info(type, message) {
+  console.log(`${chalk.green.bold(leftPad(type, 12))}  ${message}`);
+}
+
+function error(message) {
+  console.error(chalk.red(message));
+}
+
+function success(message) {
+  console.error(chalk.green(message));
+}
 
 function init({ demo, install }) {
   const type = demo ? 'demo' : 'app';

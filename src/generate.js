@@ -1,9 +1,18 @@
 import { api } from 'dva-ast';
 import upperCamelCase from 'simple-uppercamelcase';
-import { info, error } from './logger';
 import { basename, dirname, join } from 'path';
 import { statSync, readFileSync } from 'fs';
 import pathExists from 'path-exists';
+import leftPad from 'left-pad';
+import chalk from 'chalk';
+
+function info(type, message) {
+  console.log(`${chalk.green.bold(leftPad(type, 12))}  ${message}`);
+}
+
+function error(message) {
+  console.error(chalk.red(message));
+}
 
 function getBabelRc(cwd) {
   const rcPath = join(cwd, '.dvarc');
