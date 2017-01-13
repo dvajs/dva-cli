@@ -1,8 +1,6 @@
 {
   "entry": "src/index.js",
   "disableCSSModules": true,
-  "autoprefixer": null,
-  "proxy": null,
   "extraBabelPlugins": [
     "transform-runtime"
   ]

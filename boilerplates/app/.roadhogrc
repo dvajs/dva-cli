@@ -1,8 +1,5 @@
 {
   "entry": "src/index.js",
-  "disableCSSModules": false,
-  "autoprefixer": null,
-  "proxy": null,
   "env": {
     "development": {
       "extraBabelPlugins": [
