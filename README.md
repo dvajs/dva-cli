@@ -39,6 +39,7 @@ $ dva new myapp --no-install
 #### options
 
 * `--demo` -- Generate a dead simple project for quick prototype
+* `--antd` -- Generate an antd based project for quick prototype
 * `--no-install` -- Disable npm install after files created
 
 ### dva init [options]
