@@ -1,5 +1,6 @@
 import { join, basename } from 'path';
 import vfs from 'vinyl-fs';
+import map from 'map-stream';
 import { renameSync } from 'fs';
 import through from 'through2';
 import { sync as emptyDir } from 'empty-dir';
@@ -18,8 +19,19 @@ function success(message) {
   console.error(chalk.green(message));
 }
 
-function init({ demo, install }) {
-  const type = demo ? 'demo' : 'app';
+function transform(file, cb) {
+  // Be careful with binary files, so only transform files needed
+  if (file.path.endsWith('package.json')) {
+    let text = file.contents.toString('utf-8');
+    text = text.replace(/<<PROJECT_NAME>>/g, this.projectName);
+    file.contents = new Buffer(text);
+  }
+
+  cb(null, file);
+}
+
+function init({ antd, demo, install }) {
+  const type = antd ? 'antd' : demo ? 'demo' : 'app';
   const cwd = join(__dirname, '../boilerplates', type);
   const dest = process.cwd();
   const projectName = basename(dest);
@@ -32,10 +44,11 @@ function init({ demo, install }) {
   console.log(`Creating a new Dva app in ${dest}.`);
   console.log();
 
-  vfs.src(['**/*', '!node_modules/**/*'], {cwd: cwd, cwdbase: true, dot: true})
+  vfs.src(['**/*', '!node_modules/**/*'], { cwd: cwd, cwdbase: true, dot: true })
     .pipe(template(dest, cwd))
+    .pipe(map(transform.bind({ projectName })))
     .pipe(vfs.dest(dest))
-    .on('end', function() {
+    .on('end', function () {
       info('rename', 'gitignore -> .gitignore');
       renameSync(join(dest, 'gitignore'), join(dest, '.gitignore'));
       if (install) {
