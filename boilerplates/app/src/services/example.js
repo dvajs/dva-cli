@@ -1,5 +1,5 @@
 import request from '../utils/request';
 
-export async function query() {
+export function query() {
   return request('/api/users');
 }
