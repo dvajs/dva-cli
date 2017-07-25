@@ -7,8 +7,12 @@ const spawn = require('win-spawn');
 const join = require('path').join;
 const exists = require('fs').existsSync;
 
+if (process.argv.slice(2).join('') === '-v') {
+  console.log('dva-cli: ' + require('../package').version);
+  return;
+}
+
 program
-  .version(require('../package').version, '-v, --version')
   .usage('<command> [options]')
   .on('--help', printHelp)
   .parse(process.argv);
