@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "babel-plugin-transform-runtime": "^6.8.0",
-    "roadhog": "^0.5.2"
+    "roadhog": "^1.1.1"
   },
   "scripts": {
     "start": "roadhog server",
