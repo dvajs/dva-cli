@@ -16,7 +16,7 @@
     "build": "rm -rf lib && babel src --out-dir lib"
   },
   "dependencies": {
-    "chalk": "^1.1.3",
+    "chalk": "^2.1.0",
     "commander": "^2.9.0",
     "dva-ast": "^0.3.5",
     "empty-dir": "^0.2.1",
@@ -35,7 +35,7 @@
     "babel-plugin-transform-runtime": "^6.9.0",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
-    "babel-preset-stage-0": "~6.5.0",
+    "babel-preset-stage-0": "^6.24.1",
     "babel-runtime": "^6.9.2"
   },
   "babel": {
