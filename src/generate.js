@@ -30,7 +30,14 @@ function generate(program, { cwd }) {
   const defaultEntry = `${base}/index.js`;
   const defaultRouter = `${base}/router.js`;
 
-  const [type, name] = program.args;
+  const name  = program.args[1];
+  let type = program.args[0];
+  const aliases = {
+    m: 'model',
+    r: 'route',
+    c: 'component',
+  };
+  if (aliases[type]) type = aliases[type];
 
   try {
     switch (type) {
