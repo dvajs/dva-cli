@@ -10,7 +10,7 @@ const error = chalk.red;
 program
   .usage('[options] appName')
   .option('--demo', 'Generate a dead simple project for quick prototype')
-  .option('--no-install', 'Disable npm install after files created')
+  .option('--no-install', 'Disable yarn/npm install after files created')
   .parse(process.argv);
 
 if (!program.args[0]) {
