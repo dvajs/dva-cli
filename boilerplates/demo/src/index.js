@@ -1,5 +1,5 @@
 import dva, { connect } from 'dva';
-import { Router, Route } from 'dva/router';
+import { Router, Route, Switch } from 'dva/router';
 import fetch from 'dva/fetch';
 import React from 'react';
 
@@ -14,7 +14,9 @@ const app = dva();
 const HomePage = () => <div>Hello Dva.</div>;
 app.router(({ history }) =>
   <Router history={history}>
-    <Route path="/" component={HomePage} />
+    <Switch>
+      <Route path="/" exact component={HomePage} />
+    </Switch>
   </Router>
 );
 
