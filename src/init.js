@@ -24,7 +24,9 @@ function init({ demo, install }) {
   const dest = process.cwd();
   const projectName = basename(dest);
 
-  if (!emptyDir(dest)) {
+  if (!emptyDir(dest, function(filepath) {
+    return !/\.git/i.test(filepath);
+  })) {
     error('Existing files here, please run init command in an empty folder!');
     process.exit(1);
   }
