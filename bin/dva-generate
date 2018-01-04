@@ -1,12 +1,17 @@
 #!/usr/bin/env node
 
 const program = require('commander');
+const path = require('path');
+const chalk = require('chalk');
 
 program
   .option('--no-css', 'Don\'t generate css for component and routeComponent')
   .option('--base [base]', 'Specify base path, default src')
   .option('--entry [entry]', 'Specify entry path, default ${base}/src')
   .parse(process.argv);
+
+console.log(chalk.red('😢  dva generate is disabled since we don\'t have enough time currently.'));
+process.exit(0);
 
 require('../lib/generate')(program, {
   cwd: process.cwd(),
