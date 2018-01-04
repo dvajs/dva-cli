@@ -8,6 +8,6 @@ publish: build
 	rm -rf boilerplates/demo/dist
 	npm publish
 
-publish-sync: publish
+sync
 	cnpm sync dva-cli
 	tnpm sync dva-cli
