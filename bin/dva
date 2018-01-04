@@ -5,10 +5,24 @@ const chalk = require('chalk');
 const program = require('commander');
 const spawn = require('win-spawn');
 const join = require('path').join;
+const resolve = require('path').resolve;
 const exists = require('fs').existsSync;
+const readFileSync = require('fs').readFileSync;
 
 if (process.argv.slice(2).join('') === '-v') {
-  console.log('dva-cli: ' + require('../package').version);
+  const pkg = require('../package');
+  console.log('dva-cli version ' + pkg.version);
+  try {
+    const cwd = process.cwd();
+    const dvaPkg = resolve('node_modules/dva/package.json');
+    const dvaVersion = JSON.parse(readFileSync(dvaPkg, 'utf-8')).version;
+    console.log('    dva version ' + dvaVersion);
+  } catch (e) {
+    console.log(e);
+  }
+  if (!(pkg._from && pkg._resolved)) {
+    console.log(chalk.cyan('@local'));
+  }
   return;
 }
 
