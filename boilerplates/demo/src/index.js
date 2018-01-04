@@ -1,7 +1,5 @@
-import dva, { connect } from 'dva';
+import dva from 'dva';
 import { Router, Route, Switch } from 'dva/router';
-import fetch from 'dva/fetch';
-import React from 'react';
 
 // 1. Initialize
 const app = dva();
