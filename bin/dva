@@ -18,7 +18,6 @@ if (process.argv.slice(2).join('') === '-v') {
     const dvaVersion = JSON.parse(readFileSync(dvaPkg, 'utf-8')).version;
     console.log('    dva version ' + dvaVersion);
   } catch (e) {
-    console.log(e);
   }
   if (!(pkg._from && pkg._resolved)) {
     console.log(chalk.cyan('@local'));
