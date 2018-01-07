@@ -25,6 +25,7 @@
     "path-exists": "^3.0.0",
     "simple-uppercamelcase": "^1.0.0",
     "through2": "^2.0.1",
+    "update-notifier": "^2.3.0",
     "vinyl-fs": "^2.4.3",
     "which": "^1.2.10",
     "win-spawn": "^2.0.0"

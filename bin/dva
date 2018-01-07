@@ -9,6 +9,11 @@ const resolve = require('path').resolve;
 const exists = require('fs').existsSync;
 const readFileSync = require('fs').readFileSync;
 
+// Notify update when process exits
+const updater = require('update-notifier');
+const pkg = require('../package.json');
+updater({ pkg: pkg }).notify({ defer: true });
+
 if (process.argv.slice(2).join('') === '-v') {
   const pkg = require('../package');
   console.log('dva-cli version ' + pkg.version);
