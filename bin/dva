@@ -17,6 +17,9 @@ if (process.argv.slice(2).join('') === '-v') {
     const dvaPkg = resolve('node_modules/dva/package.json');
     const dvaVersion = JSON.parse(readFileSync(dvaPkg, 'utf-8')).version;
     console.log('    dva version ' + dvaVersion);
+    const roadhogPkg = resolve('node_modules/roadhog/package.json');
+    const roadhogVersion = JSON.parse(readFileSync(roadhogPkg, 'utf-8')).version;
+    console.log('roadhog version ' + roadhogVersion);
   } catch (e) {
   }
   if (!(pkg._from && pkg._resolved)) {
