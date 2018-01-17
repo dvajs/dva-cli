@@ -52,9 +52,11 @@ function generate(program, { cwd }) {
         break;
       case 'route':
         (() => {
-          const componentName = upperCamelCase(name);
-          const componentPath = `${base}/routes/${componentName}.js`;
-          const componentCSSPath = `${base}/routes/${componentName}.css`;
+          const fileName = basename(name);
+          const fileDir = dirname(name);
+          const componentName = upperCamelCase(fileName);
+          const componentPath = join(`${base}/routes`, fileDir, `${componentName}.js`);
+          const componentCSSPath = join(`${base}/routes`, fileDir, `${componentName}.css`);
           const withCSS = program.css ? `, ${componentCSSPath}` : '';
           info('create', `routeComponent ${componentPath}${withCSS}`);
           api('routeComponents.create', {
