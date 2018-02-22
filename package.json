@@ -1,6 +1,6 @@
 {
   "name": "dva-cli",
-  "version": "0.9.2",
+  "version": "1.0.0-bea.1",
   "description": "The dva command line utility.",
   "repository": {
     "type": "git",
