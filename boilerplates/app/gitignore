@@ -9,3 +9,7 @@
 # misc
 .DS_Store
 npm-debug.log*
+
+# umi
+.umi
+.umi-production

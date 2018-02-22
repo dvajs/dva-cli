@@ -5,3 +5,7 @@ lib
 dist
 coverage
 .nyc_output
+
+# umi
+.umi
+.umi-production
