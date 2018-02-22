@@ -1,6 +1,7 @@
 
 build:
 	rm -rf boilerplates/app/dist
+	rm -rf boilerplates/app/src/pages/.umi
 	rm -rf boilerplates/demo/dist
 	rm -rf libs
 	npm run build
