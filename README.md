@@ -84,7 +84,7 @@ $ dva g component Header --no-css
 
 ## Configuration
 
-dva-cli use [roadhog](https://github.com/sorrycc/roadhog) for build and server, view [roadhog#Configuration](https://github.com/sorrycc/roadhog/blob/master/README_en-us.md#configuration) ([中文版](https://github.com/sorrycc/roadhog#配置)) for details.
+dva-cli use [roadhog](https://github.com/sorrycc/roadhog) for build and server, view [roadhog#Configuration](https://github.com/sorrycc/roadhog/blob/master/README.md#configuration) ([中文版](https://github.com/sorrycc/roadhog/blob/master/README_zh-cn.md#配置)) for details.
 
 ## License
 
