@@ -1,7 +1,7 @@
 import { api } from 'dva-ast';
 import upperCamelCase from 'simple-uppercamelcase';
 import { basename, dirname, join } from 'path';
-import { statSync, readFileSync } from 'fs';
+import { readFileSync } from 'fs';
 import pathExists from 'path-exists';
 import leftPad from 'left-pad';
 import chalk from 'chalk';
