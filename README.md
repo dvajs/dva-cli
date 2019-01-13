@@ -1,8 +1,15 @@
 # dva-cli
+
 [![NPM version](https://img.shields.io/npm/v/dva-cli.svg?style=flat)](https://npmjs.org/package/dva-cli)
 [![NPM downloads](http://img.shields.io/npm/dm/dva-cli.svg?style=flat)](https://npmjs.org/package/dva-cli)
 
 CLI for [dva](https://github.com/dvajs/dva) .
+
+---
+
+**📢 dva-cli is deprecated, please use [create-umi](https://github.com/umijs/create-umi) instead, checkout [Create a Project with create-umi](https://umijs.org/guide/create-umi-app.html) for detail.**
+
+---
 
 ## Getting Started
 
@@ -22,7 +29,7 @@ $ npm start
 
 ## Commands
 
-We have 3 commands: `new`, `init` and `generate`(alias `g`).
+We have 2 commands: `new`, `init`.
 
 ### dva new <appName> [options]
 
@@ -44,20 +51,6 @@ $ dva new myapp --no-install
 ### dva init [options]
 
 Create app in current directory. It's options is the same as `dva new`.
-
-### dva generate <type> <name> (short-cut alias: "g")
-
-Generate route, model and component.
-
-#### Usage Examples
-
-```bash
-$ dva g route product-list
-$ dva g model products
-$ dva g component Editor
-$ dva g component Users/UserModal
-$ dva g component Header --no-css
-```
 
 ## Generated File Tree
 

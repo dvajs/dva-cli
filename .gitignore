@@ -1,7 +1,7 @@
-.DS_Store
-tmp
-node_modules
-lib
-dist
-coverage
-.nyc_output
+/yarn.lock
+/node_modules
+/lib
+/dist
+/coverage
+/.nyc_output
+

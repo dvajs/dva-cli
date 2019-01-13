@@ -5,6 +5,7 @@ import through from 'through2';
 import { sync as emptyDir } from 'empty-dir';
 import leftPad from 'left-pad';
 import chalk from 'chalk';
+import inquirer from 'inquirer';
 
 function info(type, message) {
   console.log(`${chalk.green.bold(leftPad(type, 12))}  ${message}`);
@@ -76,4 +77,26 @@ function template(dest, cwd) {
   });
 }
 
-export default init;
+export default function (...args) {
+  console.log();
+  console.log(chalk.bold(chalk.red(`dva-cli is deprecated, please use ${chalk.blue(`create-umi`)} instead, checkout ${chalk.gray(chalk.underline('https://umijs.org/guide/create-umi-app.html'))} for detail.`)));
+  console.log(chalk.bold(chalk.green(`如果你是蚂蚁金服内部用户，请使用 bigfish 创建项目，详见 https://bigfish.alipay.com/ 。`)));
+  console.log();
+  inquirer.prompt([
+    {
+      type: 'confirm',
+      name: 'insist',
+      message: `Do you insist on using dva-cli?`,
+      default: false,
+    },
+  ]).then(({ insist }) => {
+    if (insist) {
+      init(...args);
+    } else {
+      console.log('Have a good day!');
+    }
+  }).catch(e => {
+    console.error(chalk.red(`> Project init failed.`));
+    console.error(e);
+  })
+};
