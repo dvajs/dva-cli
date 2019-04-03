@@ -32,6 +32,8 @@ function generate(program, { cwd }) {
 
   const [type, name] = program.args;
 
+  const lang = program.lang || 'css';
+
   try {
     switch (type) {
       case 'model':
@@ -54,7 +56,7 @@ function generate(program, { cwd }) {
         (() => {
           const componentName = upperCamelCase(name);
           const componentPath = `${base}/routes/${componentName}.js`;
-          const componentCSSPath = `${base}/routes/${componentName}.css`;
+          const componentCSSPath = `${base}/routes/${componentName}.${lang || 'css'}`;
           const withCSS = program.css ? `, ${componentCSSPath}` : '';
           info('create', `routeComponent ${componentPath}${withCSS}`);
           api('routeComponents.create', {
@@ -62,6 +64,7 @@ function generate(program, { cwd }) {
             filePath: componentPath,
             componentName,
             css: program.css,
+            lang
           });
           info('create', `route ${name} with ${componentPath}`);
           api('router.createRoute', {
@@ -81,7 +84,7 @@ function generate(program, { cwd }) {
           const fileDir = dirname(name);
           const componentName = upperCamelCase(fileName);
           const filePath = join(`${base}/components`, fileDir, `${componentName}.js`);
-          const componentCSSPath = join(`${base}/components`, fileDir, `${componentName}.css`);
+          const componentCSSPath = join(`${base}/components`, fileDir, `${componentName}.${lang || 'css'}`);
           const withCSS = program.css ? `, ${componentCSSPath}` : '';
           info('create', `component ${filePath}${withCSS}`);
           api('components.create', {
@@ -89,6 +92,7 @@ function generate(program, { cwd }) {
             filePath,
             componentName,
             css: program.css,
+            lang
           });
         })();
         break;

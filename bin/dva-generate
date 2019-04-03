@@ -8,6 +8,7 @@ program
   .option('--no-css', 'Don\'t generate css for component and routeComponent')
   .option('--base [base]', 'Specify base path, default src')
   .option('--entry [entry]', 'Specify entry path, default ${base}/src')
+  .option('--lang [lang]', 'Specify style lang, default css')
   .parse(process.argv);
 
 console.log(chalk.red('😢  dva generate is disabled since we don\'t have enough time currently.'));
