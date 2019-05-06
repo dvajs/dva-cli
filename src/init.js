@@ -40,7 +40,7 @@ function init({ demo, install }) {
       info('rename', 'gitignore -> .gitignore');
       renameSync(join(dest, 'gitignore'), join(dest, '.gitignore'));
       if (install) {
-        info('run', 'npm install');
+        info('run', 'yarn/npm install');
         require('./install')(printSuccess);
       } else {
         printSuccess();
@@ -53,13 +53,13 @@ function init({ demo, install }) {
 Success! Created ${projectName} at ${dest}.
 
 Inside that directory, you can run several commands:
-  * npm start: Starts the development server.
-  * npm run build: Bundles the app into dist for production.
-  * npm test: Run test.
+  * yarn/npm start: Starts the development server.
+  * yarn/npm run build: Bundles the app into dist for production.
+  * yarn/npm test: Run test.
 
 We suggest that you begin by typing:
   cd ${dest}
-  npm start
+  yarn/npm start
 
 Happy hacking!`);
   }
